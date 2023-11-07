@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); /* Imports Poppins font from Google Fonts */
 
 body {
     font-family: 'Poppins', serif;
     background-image: url("..//images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
-
+/* Defines keyframe animation for logo */
 @keyframes grow-and-fade-in {
     0% {
         opacity: 0;
@@ -16,51 +16,52 @@ body {
         width: 475px;
     }
 }
-
+/* Apply's animation to logo */
 #logo {
     animation-name: grow-and-fade-in;
     animation-duration: 5s;
     animation-fill-mode: forwards;
 }
-
+/* This code will style the header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
 }
-
+/* This code will style the navigation links on the page */
 .nav_links {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
-
+/* This code changes color of the visited links to blue */
 .nav_links a:visited {
-    color: inherit;
+    color: blue;
 }
-
+/* Styles the cards on the webpage */
 .card {
     border-radius: 50px 50px 0 0;
     overflow: hidden;
 }
-
+/* Styles heading of the card */
 .card > header {
     background: #288088;
     border: solid 2px #45ADAD;
     padding: 20px 0;
     box-sizing: border-box;
 }
-
+/* Sets the dimensions for the card class, flex-grow 0, flex-shrink 1, flex-basis 450px */
 .card {
     flex: 0 1 450px;
 }
-
+/* Media query for screens with views smaller than 720px */
 @media (max-width: 720px) {
+    /* Stacks header items vertically on smaller screen sizes */
     header {
         flex-direction: column;
     }
-
+/* Centers nav_links and stacks them vertically on smaller screen sizes*/
     .nav_links {
         flex-direction: column;
         align-items: center;
@@ -68,68 +69,82 @@ header {
         padding-bottom: 10px;
     }
 }
-
+/* Styles the pricing class */
 .pricing {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    height: auto;
+    display: flex; /* Uses flexbox for layout */
+    justify-content: center; /* Horizontally aligns items in center */
+    align-items: center; /* Vertically aligns items in center */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    height: auto; /* Used auto height to set height of .pricing class */
 }
-
+/* Styles for gallery images */
 .gallery img {
     border: 10px solid #50C7C7;
     margin: 10px;
     width: 300px;
-    height: auto;
+    height: auto; /* Height set to auto to maintain image aspect ratio */
 }
-
+/* Sets gallery layout */
 .gallery {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    justify-content: center; /* Horizontally aligns items in center */
 }
-
+/* Media query for screens with views wider than 900px */
 @media (min-width: 900px) {
+    /* Changes pricing layout for larger screen sizes */
     .pricing {
         display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
+        justify-content: space-around; /* Horizontally spreads out items and adds space around them */
+        align-items: flex-start; /* Vertically aligns items at the start */
     }
-
+/* Changes card dimensions for larger screens sizes */
     .card {
         flex: 1 1 275px;
     }
 }
-
+/* For viewers who have set preference for reduced motion on the webpage */
 @media (prefers-reduced-motion: reduce) {
+    /* Disables animations for logo */
     #logo {
         animation: none;
     }
 }
-
+/* Sets print view styles */
 @media print {
+    /* Changes body font and background for print */
     body {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Arial, Helvetica;
         background-image: none;
     }
-
+/* Adjusts the layout of pricing for print */
     .pricing {
         align-items: flex-end;
+        flex-wrap: nowrap;
     }
-
+/* Adjusts style and dimensions of the card for print */
     .card {
         border: 2px solid #45ADDD;
         flex-basis: 325px;
     }
-
+/* Hides the gallery for print view */
     .gallery {
         display: none;
     }
-
-    .card ul li:before {
+/* Adds the thumbs up emoji to list items */
+    .card ul li::after {
         content: "\1F44D";
         color: yellow;
         margin-right: 10px;
+    }
+/* Changes the direction of nav_links for print view */
+    .nav_links {
+        flex-direction: row;
+    }
+}
+/* Hides the word "Gallery" in print view */
+@media print {
+    #gallery {
+        display: none;
     }
 }
